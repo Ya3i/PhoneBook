@@ -7,7 +7,7 @@ a PhoneBook with Phyton
 - Remove a Contact
 
 
-Creat by : Yasin Allahyari <br>
+Create by : Yasin Allahyari <br>
 ## contact me: <br>
 > instagram : @i._.ya3in <br>
 E-mail : Yasinallahyari@yahoo.com
