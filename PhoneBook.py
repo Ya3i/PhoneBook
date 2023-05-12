@@ -1,38 +1,40 @@
-#Create by : Yasin Allahyari
+#Create by : Yasin Allahyari & Abolfazl ostadi :)
 #instagram : @i._.ya3in
 #E-mail : Yasinallahyari@yahoo.com
 
+book = {"phone"}
 
-# Define an empty phonebook dictionary
-phonebook = {}
+def check_book(dict,name):
+    return name in book[dict]
 
-# Function to add a contact to the phonebook
+# add a contact to the phonebook
 def add_contact(name, phone):
-    phonebook[name] = phone
+    book["phone"].update({name:phone})
     print(f"Contact {name} added with phone number {phone}")
 
-# Function to search for a contact in the phonebook and display the result
+# search for a contact in the phonebook and display the result
 def search_contact(name):
-    if name in phonebook:
-        print(f"The phone number of {name} is {phonebook[name]}")
+    if check_book("phone",name):
+        print(f"{'*'*8}  The phone number of {name} is {book['phone'][name]}")
     else:
         print(f"{name} is not found in the phonebook")
 
-# Function to remove a contact from the phonebook
+# remove a contact from the phonebook
 def remove_contact(name):
-    if name in phonebook:
-        phonebook.pop(name)
+    if check_book("phone",name):
+        book["phone"].pop(name)
         print(f"Contact {name} removed from the phonebook")
     else:
         print(f"{name} is not found in the phonebook")
 
-# Main program loop
 while True:
-    print("\nPhonebook Menu:")
-    print("1. Add a contact")
-    print("2. Search for a contact")
-    print("3. Remove a contact")
-    print("4. Quit")
+    print("""\n*****
+Phonebook Menu:
+1. Add/edit a contact
+2. Search for a contact
+3. Remove a contact
+4. Quit""")
+
 
     choice = input("Enter your choice (1-4): ")
 
@@ -40,18 +42,14 @@ while True:
         name = input("Enter the name: ")
         phone = input("Enter the phone number: ")
         add_contact(name, phone)
-
     elif choice == "2":
         name = input("Enter the name to search: ")
         search_contact(name)
-
     elif choice == "3":
         name = input("Enter the name to remove: ")
         remove_contact(name)
-
     elif choice == "4":
         print("Goodbye!")
         break
-
     else:
         print("Invalid choice. Please try again.")
